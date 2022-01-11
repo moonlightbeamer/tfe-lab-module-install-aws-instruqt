@@ -1,0 +1,45 @@
+friendly_name_prefix = "cloud-team"
+common_tags = {
+  "App"       = "TFE"
+  "Env"       = "test"
+  "Scenario"  = "alb-ext-r53-acm-ol"
+  "Terraform" = "local-cli"
+  "Owner"     = "YourName"
+}
+
+tfe_bootstrap_bucket      = "tfe-bootstrap-bucket-primary"
+tfe_license_filepath      = "s3://tfe-bootstrap-bucket-primary/tfe-license.rli"
+tfe_release_sequence      = 568
+tfe_hostname              = "tfe.example.com"
+console_password          = "aws_secretsmanager"
+enc_password              = "aws_secretsmanager"
+tfe_install_secrets_arn   = "arn:aws:secretsmanager:us-east-1:000000000000:secret:tfe-install-secrets-111111"
+enable_log_forwarding     = true
+cloudwatch_log_group_name = "tfe-log-group"
+
+vpc_id                  = "vpc-00000000000000000"
+lb_subnet_ids           = ["subnet-11111111111111111", "subnet-22222222222222222", "subnet-33333333333333333"]
+ec2_subnet_ids          = ["subnet-44444444444444444", "subnet-55555555555555555", "subnet-66666666666666666"]
+rds_subnet_ids          = ["subnet-77777777777777777", "subnet-88888888888888888", "subnet-99999999999999999"]
+ingress_cidr_443_allow  = ["0.0.0.0/0"]
+ingress_cidr_8800_allow = ["10.0.0.0/16"]
+ingress_cidr_22_allow   = ["10.0.0.0/16"]
+load_balancer_scheme    = "external"
+route53_hosted_zone_acm = "example.com"
+create_tfe_alias_record = true
+route53_hosted_zone_tfe = "example.com"
+
+kms_key_arn = "arn:aws:kms:us-east-1:000000000000:key/11111111-2222-3333-4444-555555555555"
+
+asg_instance_count = 1
+asg_max_size       = 1
+os_distro          = "amzn2"
+ssh_key_pair       = "tfe_keypair_us_east_1"
+
+rds_password = "MyRdsPassword123!"
+rds_multi_az = true
+
+enable_active_active             = false
+redis_subnet_ids                 = ["subnet-77777777777777777", "subnet-88888888888888888", "subnet-99999999999999999"]
+redis_password                   = "MyRedisPassword123!"
+redis_at_rest_encryption_enabled = true
