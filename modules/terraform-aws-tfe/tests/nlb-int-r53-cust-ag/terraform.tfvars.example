@@ -1,0 +1,52 @@
+friendly_name_prefix = "cloud-team"
+common_tags = {
+  "App"       = "TFE"
+  "Env"       = "test"
+  "Scenario"  = "nlb-int-other-cust-ag"
+  "Terraform" = "local-CLI"
+  "Owner"     = "YourName"
+}
+
+tfe_bootstrap_bucket      = "tfe-bootstrap-bucket-primary"
+tfe_license_filepath      = "s3://tfe-bootstrap-bucket-primary/tfe-license.rli"
+airgap_install            = true
+tfe_airgap_bundle_path    = "s3://tfe-bootstrap-bucket-primary/tfe-568.airgap"
+replicated_bundle_path    = "s3://tfe-bootstrap-bucket-primary/replicated.tar.gz"
+tfe_hostname              = "tfe.example.com"
+tls_bootstrap_type        = "server-path"
+tfe_cert_secret_arn       = "arn:aws:secretsmanager:us-east-1:000000000000:secret:tfe-cert-111111"
+tfe_privkey_secret_arn    = "arn:aws:secretsmanager:us-east-1:000000000000:secret:tfe-privkey-111111"
+ca_bundle_secret_arn      = "arn:aws:secretsmanager:us-east-1:000000000000:secret:tfe-ca-bundle-111111"
+console_password          = "aws_secretsmanager"
+enc_password              = "aws_secretsmanager"
+tfe_install_secrets_arn   = "arn:aws:secretsmanager:us-east-1:000000000000:secret:tfe-install-secrets-111111"
+log_forwarding_enabled    = true
+cloudwatch_log_group_name = "tfe-log-group"
+
+vpc_id                  = "vpc-00000000000000000"
+lb_subnet_ids           = ["subnet-11111111111111111", "subnet-22222222222222222", "subnet-33333333333333333"]
+ec2_subnet_ids          = ["subnet-44444444444444444", "subnet-55555555555555555", "subnet-66666666666666666"]
+rds_subnet_ids          = ["subnet-77777777777777777", "subnet-88888888888888888", "subnet-99999999999999999"]
+ingress_cidr_443_allow  = ["10.0.0.0/16"]
+ingress_cidr_8800_allow = ["10.0.0.0/16"]
+ingress_cidr_22_allow   = ["10.0.0.0/16"]
+load_balancer_type      = "nlb"
+load_balancer_scheme    = "internal"
+create_tfe_alias_record = true
+route53_hosted_zone_tfe = "example.com"
+hairpin_addressing      = true
+
+kms_key_arn = "arn:aws:kms:us-east-1:000000000000:key/11111111-2222-3333-4444-555555555555"
+
+asg_instance_count = 1
+os_distro          = "amzn2"
+ami_id             = "ami-005b7876121b7244d"
+ssh_key_pair       = "tfe_keypair_us_east_1"
+
+rds_password = "MyRdsPasswd123!"
+rds_multi_az = true
+
+enable_active_active             = false
+redis_subnet_ids                 = ["subnet-77777777777777777", "subnet-88888888888888888", "subnet-99999999999999999"]
+redis_password                   = "MyRedisPasswd123!"
+redis_at_rest_encryption_enabled = true
